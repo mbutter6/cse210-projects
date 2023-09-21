@@ -1,15 +1,29 @@
 using System;
 
-class Program1
+class Program
 {
     static void Main(string[] args)
     {
         Console.Write("What is the magic number? ");
         int magicNumber = int.Parse(Console.ReadLine());
 
-        Console.Write("What is your guess?");
-        // if (magicNumber > 5){
-        // Console.WriteLine('greater');
+
+        if (magicNumber == 5)
+        {
+            Console.WriteLine("Correct");
+        }
+
+        else if (magicNumber < 5)
+        {
+            Console.WriteLine("Higher");
+        }
+
+        else
+        {
+            Console.WriteLine("Lower");
+        }
+
+
     }
 
 }
