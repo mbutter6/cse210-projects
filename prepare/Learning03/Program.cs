@@ -7,13 +7,19 @@ class Program
         Console.Write("What is the magic number? ");
         int magicNumber = int.Parse(Console.ReadLine());
 
+        int guess = 5;
 
-        if (magicNumber == 5)
+        while (guess != magicNumber)
+
+            Console.WriteLine("what is your guess?");
+        guess = int.Parse(Console.ReadLine());
+
+        if (magicNumber == guess)
         {
             Console.WriteLine("Correct");
         }
 
-        else if (magicNumber < 5)
+        else if (magicNumber < guess)
         {
             Console.WriteLine("Higher");
         }
