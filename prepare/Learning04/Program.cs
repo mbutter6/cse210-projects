@@ -6,4 +6,6 @@ class Program
     {
         Console.WriteLine("Hello Learning04 World!");
     }
+    List<int> numbers;
+    numbers = new List<int>();
 }
