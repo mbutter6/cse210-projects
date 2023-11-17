@@ -39,7 +39,7 @@ class Program
 
 
         //Step 5.
-        Entry entry = Entry.Entry();
+        Entry entry = Entry.GetEntry();
         entry.EntryDate = DateTime.Now.ToShortDateString();
         entry.Prompt = "";//from prompt above
         entry.Response = ""; // pull from user's response
