@@ -1,17 +1,18 @@
-//Journal Work in Class 10/5/23 **USE THIS TO HELP FOR HOMEWORK
-
-
 public class Entry
 {
-
-    public string EntryDate { get; set; }
-
+    public DateTime Date { get; set; }
     public string Prompt { get; set; }
-
     public string Response { get; set; }
 
-    public void GetEntry()
+    public Entry(string prompt, string response)
     {
+        Date = DateTime.Now;
+        Prompt = prompt;
+        Response = response;
+    }
 
+    public override string ToString()
+    {
+        return $"{Date:yyyy-MM-dd HH:mm:ss}\nPrompt: {Prompt}\nResponse: {Response}\n";
     }
 }

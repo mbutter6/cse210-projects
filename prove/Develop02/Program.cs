@@ -4,105 +4,61 @@ class Program
 {
     static void Main(string[] args)
     {
-        //TODO:
-        //Create a Journal object 
+        Journal journal = new Journal();
 
-        //class Journal{}
-        Journal myJournal{
-            Console.WriteLine(myJournal.JournalName);
-        }
-
-        //Prompt the user with menu
-
-        Console.Write("Please choose a number? ");
-        string color = Console.ReadLine();
-
-        List<string> prompts = new List<string>();
-
-        prompts.Add("who was the most interesting person I interacted with today?");
-        prompts.Add("What was the best part of my day?");
-        prompts.Add("How did I see the hand of the Lord in my life today?");
-        prompts.Add("What was the strongest emotion I felt today?");
-        prompts.Add("If I had one thing I could do over today, what would it be?");
-
-        //if user picks option to add new entry
-        pubilc void Start()
+        while (true)
         {
-            while (true)
+            Console.WriteLine("\nMenu:");
+            Console.WriteLine("1. Write a new entry");
+            Console.WriteLine("2. Display the journal");
+            Console.WriteLine("3. Save the journal to a file");
+            Console.WriteLine("4. Load the journal from a file");
+            Console.WriteLine("5. Exit");
+
+            Console.Write("Enter your choice (1-5): ");
+            string choice = Console.ReadLine();
+
+            switch (choice)
             {
-                Console.WriteLine("Choose an option:");
-                Console.WriteLine("1. Get a journal prompt");
-                Console.WriteLine("2. Write an entry");
-                Console.WriteLine("3. View your journal entries");
-                Console.WriteLine("4. Quit");
+                case "1":
+                    Console.Write("Enter your response to the prompt: ");
+                    string response = Console.ReadLine();
+                    string[] prompts = { "Who was the most interesting person I interacted with today?",
+                                         "What was the best part of my day?",
+                                         "How did I see the hand of the Lord in my life today?",
+                                         "What was the strongest emotion I felt today?",
+                                         "If I had one thing I could do over today, what would it be?" };
+                    string randomPrompt = prompts[new Random().Next(prompts.Length)];
+                    journal.AddEntry(randomPrompt, response);
+                    break;
 
-                string choice = Console.ReadLine();
+                case "2":
+                    Console.WriteLine("\nJournal Entries:");
+                    journal.DisplayJournal();
+                    break;
 
-                switch (choice)
-                {
-                    case "1":
-                        GetPrompt():
-                        break
-                    case "2":
-            WriteEntry():
-                        break;
-        case "3":
-            ViewEntries():
-                        break;
-        case "4":
-            Console.WriteLine("Goodbye!");
-            return;
-        default:
-            Console.WriteLine("Invalid option. Please choose again.");
+                case "3":
+                    Console.Write("Enter a filename to save the journal: ");
+                    string saveFilename = Console.ReadLine();
+                    journal.SaveToFile(saveFilename);
+                    Console.WriteLine("Journal saved successfully.");
+                    break;
 
-            break;
+                case "4":
+                    Console.Write("Enter a filename to load the journal: ");
+                    string loadFilename = Console.ReadLine();
+                    journal.LoadFromFile(loadFilename);
+                    Console.WriteLine("Journal loaded successfully.");
+                    break;
 
+                case "5":
+                    Console.WriteLine("Exiting the program. Goodbye!");
+                    return;
 
+                default:
+                    Console.WriteLine("Invalid choice. Please enter a number between 1 and 5.");
+                    break;
+            }
         }
-
-    }
-}
-
-//step 1: pick a random prompt from list above
-private void GetPrompt()
-{
-    Random random = new Random();
-    int index = random.Next(prompts.Count);
-    string prompt = prompts[index];
-    Console.WriteLine("\nJournal Prompt:");
-    Console.WriteLine(prompt);
-}
-
-
-//2. display random prompt
-// ->   Console.WriteLine
-Console.WriteLine("\nEnter your journal entry:");
-string entry = Console.ReadLine();
-
-//3. save entry from user
-entries.Add(entry);
-Console.WriteLine("Entry saved!");
-//4. create Response object
-
-
-//5. save response object to journal object 
-entry.Add(journal);
-Console.WriteLine("Entry Saved!");
-
-//Step 5.
-Entry entry = Entry.Entry();
-entry.EntryDate = DateTime.Now.ToShortDateString();
-entry.Prompt = "";//from prompt above
-entry.Response = ""; // pull from user's response
-
-//Create Journal Entry
-Journal journal = new Journal();
-journal.JournalName = ""; // ask user for their name
-                          //journal.Entries = new List<Entry>();
-journal.Entries.Add(entry);
-
-        //save journal to file system
-        // possible save it to the txt file
-
     }
 }
