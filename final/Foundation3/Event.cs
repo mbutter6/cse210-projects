@@ -15,17 +15,17 @@ public class Event
         this.address = address;
     }
 
-    public virtual string GetStandardDetails()
+    public string GetStandardDetails()
     {
         return $"Title: {title}\nDescription: {description}\nDate: {date.ToShortDateString()}\nTime: {time}\nAddress: {address}";
     }
 
-    public virtual string GetFullDetails()
+    public string GetFullDetails()
     {
         return GetStandardDetails();
     }
 
-    public virtual string GetShortDescription()
+    public string GetShortDescription()
     {
         return $"Type: Generic Event\nTitle: {title}\nDate: {date.ToShortDateString()}";
     }
