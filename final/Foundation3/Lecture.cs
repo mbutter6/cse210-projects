@@ -1,22 +1,10 @@
 public class Lecture : Event
 {
-    private string speaker;
-    private int capacity;
+    public string Speaker { get; set; }
+    public int Capacity { get; set; }
 
-    public Lecture(string title, string description, DateTime date, TimeSpan time, Address address, string speaker, int capacity)
-        : base(title, description, date, time, address)
+    public override string FullDetails()
     {
-        this.speaker = speaker;
-        this.capacity = capacity;
-    }
-
-    public override string GetFullDetails()
-    {
-        return $"{base.GetFullDetails()}\nType: Lecture\nSpeaker: {speaker}\nCapacity: {capacity}";
-    }
-
-    public override string GetShortDescription()
-    {
-        return $"Type: Lecture\nTitle: {GetTitle()}\nDate: {GetDate().ToShortDateString()}";
+        return $"{base.FullDetails()}\nType: Lecture\nSpeaker: {Speaker}\nCapacity: {Capacity}";
     }
 }
